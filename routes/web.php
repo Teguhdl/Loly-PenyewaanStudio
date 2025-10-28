@@ -5,7 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\{
     UserController,
     DashboardController,
-    CategoryController
+    CategoryController,
+    VirtualWorldController
 };
 
 
@@ -35,6 +36,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/categories/{category}/edit', [CategoryController::class,'edit'])->name('admin.categories.edit');
     Route::post('/categories/{category}', [CategoryController::class,'update'])->name('admin.categories.update');
     Route::delete('/categories/{category}', [CategoryController::class,'destroy'])->name('admin.categories.destroy');
+
+    Route::get('/virtual-worlds', [VirtualWorldController::class,'index'])->name('admin.virtual_worlds.index');
+    Route::get('/virtual-worlds/create', [VirtualWorldController::class, 'create'])->name('admin.virtual_worlds.create');
+    Route::post('/virtual-worlds', [VirtualWorldController::class, 'store'])->name('admin.virtual_worlds.store');
+    Route::get('/virtual-worlds/{virtualWorld}/edit', [VirtualWorldController::class,'edit'])->name('admin.virtual_worlds.edit');
+    Route::post('/virtual-worlds/{virtualWorld}', [VirtualWorldController::class,'update'])->name('admin.virtual_worlds.update');
+    Route::delete('/virtual-worlds/{virtualWorld}', [VirtualWorldController::class,'destroy'])->name('admin.virtual_worlds.destroy');
 
     Route::get('/users', [UserController::class,'index'])->name('admin.users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('admin.users.create');

@@ -5,7 +5,7 @@
 
     <div class="flex-1 ml-64 flex flex-col min-h-screen">
         <header class="p-4 border-b border-cyan-700 flex justify-between items-center">
-            <h1 class="text-2xl font-semibold neon-text">{{ $pageTitle ?? 'Dashboard' }}</h1>
+            <h1 class="text-2xl font-semibold neon-text"></h1>
             <span class="text-sm text-cyan-300">Halo, {{ auth()->user()->name }}</span>
         </header>
 
