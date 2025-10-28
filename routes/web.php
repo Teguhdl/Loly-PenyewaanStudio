@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\{
+    UserController,
+    DashboardController
+};
 
 
 /*
@@ -21,9 +24,14 @@ Route::get('/', function () {
 });
 
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
-    Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/users', [UserController::class,'index'])->name('admin.users.index');
+    Route::get('/users/create', [UserController::class, 'create'])->name('admin.users.create');
+    Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
+    Route::get('/users/{user}/edit', [UserController::class,'edit'])->name('admin.users.edit');
+    Route::post('/users/{user}', [UserController::class,'update'])->name('admin.users.update');
 });
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

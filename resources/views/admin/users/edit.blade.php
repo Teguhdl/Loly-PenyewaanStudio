@@ -1,8 +1,8 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="max-w-2xl mx-auto glow-card p-8 rounded-2xl">
-    <h2 class="text-2xl font-bold text-cyan-300 neon-text mb-6">Tambah User Baru</h2>
+<div class="glow-card p-8 rounded-2xl max-w-2xl mx-auto">
+    <h2 class="text-2xl font-bold neon-text text-cyan-300 mb-6">Edit User</h2>
 
     <!-- Error List -->
     @if ($errors->any())
@@ -21,34 +21,32 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.users.store') }}" method="POST">
+    <form action="{{ route('admin.users.update', $user->id) }}" method="POST">
         @csrf
         <div class="mb-4">
             <label class="block text-gray-300 mb-1">Nama</label>
-            <input type="text" name="name" value="{{ old('name') }}" required
+            <input type="text" name="name" value="{{ old('name', $user->name) }}" 
                    class="w-full p-2 rounded-md bg-[#0f1329]/50 border border-cyan-600 text-white">
         </div>
 
         <div class="mb-4">
             <label class="block text-gray-300 mb-1">Email</label>
-            <input type="email" name="email" value="{{ old('email') }}" required
+            <input type="email" name="email" value="{{ old('email', $user->email) }}" 
                    class="w-full p-2 rounded-md bg-[#0f1329]/50 border border-cyan-600 text-white">
         </div>
 
         <div class="mb-4">
-            <label class="block text-gray-300 mb-1">Password</label>
-            <input type="password" name="password" required
-                   class="w-full p-2 rounded-md bg-[#0f1329]/50 border border-cyan-600 text-white">
+            <label class="block text-gray-300 mb-1">Password Baru (opsional)</label>
+            <input type="password" name="password" class="w-full p-2 rounded-md bg-[#0f1329]/50 border border-cyan-600 text-white">
         </div>
 
         <div class="mb-4">
             <label class="block text-gray-300 mb-1">Konfirmasi Password</label>
-            <input type="password" name="password_confirmation" required
-                   class="w-full p-2 rounded-md bg-[#0f1329]/50 border border-cyan-600 text-white">
+            <input type="password" name="password_confirmation" class="w-full p-2 rounded-md bg-[#0f1329]/50 border border-cyan-600 text-white">
         </div>
 
         <button type="submit" class="px-6 py-2 bg-cyan-500 hover:bg-cyan-400 rounded-lg text-white">
-            Tambah User
+            Simpan Perubahan
         </button>
     </form>
 </div>

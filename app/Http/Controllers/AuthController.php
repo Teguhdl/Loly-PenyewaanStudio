@@ -6,7 +6,7 @@ use App\Domain\Users\Services\AuthService;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
-Use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -17,9 +17,15 @@ class AuthController extends Controller
         $this->authService = $authService;
     }
 
-    public function showLogin() { return view('auth.login'); }
+    public function showLogin()
+    {
+        return view('auth.login');
+    }
 
-    public function showRegister() { return view('auth.register'); }
+    public function showRegister()
+    {
+        return view('auth.register');
+    }
 
     public function register(RegisterRequest $request)
     {
@@ -30,7 +36,13 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $user = $this->authService->login($request->validated());
-        if ($user) return redirect()->intended('/dashboard');
+        if ($user) {
+            if ($user->role === 'admin') {
+                return redirect()->intended('/admin/dashboard');
+            } else {
+                return redirect()->intended('/profile'); 
+            }
+        }
         return back()->withErrors(['email' => 'Email atau password salah.']);
     }
 
