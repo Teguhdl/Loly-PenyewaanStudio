@@ -19,4 +19,11 @@ class UserRepository implements UserRepositoryInterface
         $user = User::create($data);
         return new UserEntity($user->id, $user->name, $user->email, $user->role);
     }
+    public function update(int $id, array $data): UserEntity
+    {
+        $user = User::findOrFail($id);
+        $user->update($data);
+
+        return new UserEntity($user->id, $user->name, $user->email, $user->role);
+    }
 }

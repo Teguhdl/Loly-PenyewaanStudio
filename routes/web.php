@@ -6,7 +6,11 @@ use App\Http\Controllers\Admin\{
     UserController,
     DashboardController,
     CategoryController,
-    VirtualWorldController
+    VirtualWorldController,
+};
+use App\Http\Controllers\User\{
+    DashboardUserController,
+    ProfileController
 };
 
 
@@ -51,6 +55,16 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::post('/users/{user}', [UserController::class,'update'])->name('admin.users.update');
 });
 
+
+Route::middleware(['auth', 'role:user'])->prefix('user')->group(function () {
+    Route::get('/dashboard', [DashboardUserController::class, 'index'])->name('user.dashboard');
+    Route::get('/rent-a-world', [DashboardUserController::class, 'index'])->name('user.rentals.create');
+    Route::get('/rent/history', [DashboardUserController::class, 'index'])->name('user.rentals.index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('user.profile.edit');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('user.profile.update');
+
+});
+
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

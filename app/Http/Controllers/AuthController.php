@@ -40,7 +40,7 @@ class AuthController extends Controller
             if ($user->role === 'admin') {
                 return redirect()->intended('/admin/dashboard');
             } else {
-                return redirect()->intended('/profile'); 
+                return redirect()->intended('/user/dashboard'); 
             }
         }
         return back()->withErrors(['email' => 'Email atau password salah.']);

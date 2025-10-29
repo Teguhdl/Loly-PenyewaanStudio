@@ -16,6 +16,7 @@
     <table class="w-full text-left table-auto border-collapse border border-gray-700">
         <thead class="bg-gray-800 text-cyan-400">
             <tr>
+                <th class="px-4 py-2 border border-gray-600">No</th>
                 <th class="px-4 py-2 border border-gray-600">Kode</th>
                 <th class="px-4 py-2 border border-gray-600">Nama</th>
                 <th class="px-4 py-2 border border-gray-600">Kategori</th>
@@ -27,6 +28,7 @@
         <tbody>
             @foreach($virtualWorlds as $vw)
             <tr class="bg-gray-900 hover:bg-gray-800">
+                <td class="px-4 py-2 border border-gray-700">{{ $loop->iteration }}</td>
                 <td class="px-4 py-2 border border-gray-700">{{ $vw->code }}</td>
                 <td class="px-4 py-2 border border-gray-700">{{ $vw->name }}</td>
                 <td class="px-4 py-2 border border-gray-700">
@@ -35,7 +37,7 @@
                     @endforeach
                 </td>
                 <td class="px-4 py-2 border border-gray-700">{{ $vw->is_rented ? 'Disewa' : 'Tersedia' }}</td>
-                <td class="px-4 py-2 border border-gray-700">{{ number_format($vw->price_per_day,0,',','.') }}</td>
+                <td class="px-4 py-2 border border-gray-700">Rp. {{ number_format($vw->price_per_day,0,',','.') }}</td>
                 <td class="px-4 py-2 border border-gray-700 flex gap-2">
                     <a href="{{ route('admin.virtual_worlds.edit', $vw->id) }}" class="bg-blue-600 px-2 py-1 rounded neon-btn">Edit</a>
                     <form action="{{ route('admin.virtual_worlds.destroy', $vw->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus?');">

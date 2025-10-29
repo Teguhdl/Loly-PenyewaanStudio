@@ -12,6 +12,11 @@ use App\Infrastructure\Persistence\Eloquent\CategoryRepository;
 use App\Domain\VirtualWorlds\Repositories\VirtualWorldRepositoryInterface;
 use App\Infrastructure\Persistence\Eloquent\VirtualWorldRepository;
 
+use App\Domain\Dashboard\Repositories\DashboardUserRepositoryInterface;
+use App\Infrastructure\Persistence\Eloquent\DashboardUserRepository;
+
+use App\Domain\Users\Repositories\UserProfileRepositoryInterface;
+use App\Infrastructure\Persistence\Eloquent\UserProfileRepository;
 class RepositoryServiceProvider extends ServiceProvider
 {
     public function register()
@@ -19,6 +24,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->bind(VirtualWorldRepositoryInterface::class, VirtualWorldRepository::class);
+        $this->app->bind(DashboardUserRepositoryInterface::class,DashboardUserRepository::class);
+        $this->app->bind(UserProfileRepositoryInterface::class, UserProfileRepository::class);
 
     }
 }
