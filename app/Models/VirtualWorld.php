@@ -6,25 +6,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Rental;
-
 class VirtualWorld extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'code',       // Kode unik untuk membedakan unit
-        'description',
-        'price_per_day', // jika ingin terintegrasi payment nanti
-        'status'       // misal: available, rented, maintenance
+        'code',
+        'description',  
+        'price_per_day',
+        'image',       // ✅ tambahkan ini
+        'is_rented',
+        'is_available'
     ];
 
-    /**
-     * Relasi Many-to-Many dengan Category
-     */
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'category_virtual_world');
     }
-
 }

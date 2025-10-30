@@ -3,7 +3,7 @@
 
     <div class="flex items-center space-x-6">
         <a href="{{ route('user.dashboard') }}" class="nav-link {{ request()->routeIs('user.dashboard') ? 'active' : '' }}">🏠 Dashboard</a>
-        <a href="{{ route('user.rentals.create') }}" class="nav-link {{ request()->routeIs('user.rentals.index') ? 'active' : '' }}">🎮 Sewa Dunia</a>
+        <a href="{{ route('user.rentals.index') }}" class="nav-link {{ request()->routeIs('user.rentals.index') ? 'active' : '' }}">🎮 Sewa Dunia</a>
         <a href="{{ route('user.rentals.index') }}" class="nav-link {{ request()->routeIs('user.history.index') ? 'active' : '' }}">📜 Riwayat</a>
         <a href="{{ route('user.profile.edit') }}" class="nav-link {{ request()->routeIs('user.profile.edit') ? 'active' : '' }}">👤 Profil</a>
     </div>

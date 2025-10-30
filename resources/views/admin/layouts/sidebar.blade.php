@@ -12,6 +12,6 @@
         <a href="{{ route('admin.virtual_worlds.index') }}" class="hover:text-cyan-400 {{ request()->routeIs('admin.virtual_worlds.index') ? 'text-cyan-300 font-semibold' : 'text-gray-400' }}">
             🎮 Virtual Worlds
         </a>
-        <a href="#" class="hover:text-cyan-400 text-gray-400">🏠 Rentals</a>
+        <a href="{{ route('admin.rental.index') }}" class="hover:text-cyan-400 text-gray-400">🏠 Rentals</a>
     </nav>
 </aside>

@@ -22,6 +22,11 @@ class VirtualWorldRepository implements VirtualWorldRepositoryInterface
         $categories = $data['categories'] ?? [];
         unset($data['categories']);
 
+        // ✅ Handle upload image
+        if (isset($data['image']) && $data['image'] instanceof \Illuminate\Http\UploadedFile) {
+            $data['image'] = $data['image']->store('uploads/virtual_worlds', 'public');
+        }
+
         $virtualWorld = VirtualWorld::create($data);
         $virtualWorld->categories()->sync($categories);
 
@@ -36,11 +41,17 @@ class VirtualWorldRepository implements VirtualWorldRepositoryInterface
         $categories = $data['categories'] ?? [];
         unset($data['categories']);
 
+        // ✅ Handle image baru jika ada
+        if (isset($data['image']) && $data['image'] instanceof \Illuminate\Http\UploadedFile) {
+            $data['image'] = $data['image']->store('uploads/virtual_worlds', 'public');
+        }
+
         $virtualWorld->update($data);
         $virtualWorld->categories()->sync($categories);
 
         return true;
     }
+
 
     public function delete(int $id): bool
     {

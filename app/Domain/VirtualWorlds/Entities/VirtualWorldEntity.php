@@ -5,5 +5,6 @@ class CategoryEntity
 {
     public int $id;
     public string $name;
+    public $avatar;
     public ?string $description;
 }

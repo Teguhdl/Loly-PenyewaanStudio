@@ -7,10 +7,12 @@ use App\Http\Controllers\Admin\{
     DashboardController,
     CategoryController,
     VirtualWorldController,
+    RentalController
 };
 use App\Http\Controllers\User\{
     DashboardUserController,
-    ProfileController
+    ProfileController,
+    RentalUserController
 };
 
 
@@ -53,13 +55,17 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
     Route::get('/users/{user}/edit', [UserController::class,'edit'])->name('admin.users.edit');
     Route::post('/users/{user}', [UserController::class,'update'])->name('admin.users.update');
+
+    Route::get('/rental', [RentalController::class,'index'])->name('admin.rental.index');
+
 });
 
 
 Route::middleware(['auth', 'role:user'])->prefix('user')->group(function () {
     Route::get('/dashboard', [DashboardUserController::class, 'index'])->name('user.dashboard');
-    Route::get('/rent-a-world', [DashboardUserController::class, 'index'])->name('user.rentals.create');
-    Route::get('/rent/history', [DashboardUserController::class, 'index'])->name('user.rentals.index');
+    Route::get('/rent-a-world', [RentalUserController::class, 'index'])->name('user.rentals.index');
+    Route::post('/rent-a-world', [RentalUserController::class, 'store'])->name('user.rentals.store');
+    Route::get('/rent/history', [DashboardUserController::class, 'index'])->name('user.rentals.history');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('user.profile.edit');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('user.profile.update');
 
