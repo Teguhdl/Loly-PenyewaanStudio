@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>{{ $title ?? 'User Dashboard | VR World' }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
         body {
             background: radial-gradient(circle at top, #0b0f1a, #05070d);

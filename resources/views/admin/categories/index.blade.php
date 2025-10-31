@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="glow-card p-8 rounded-2xl max-w-4xl mx-auto">
+<div class="glow-card p-8 rounded-2xl max-w-8xl mx-auto">
     <div class="flex justify-between items-center mb-6">
         <h2 class="text-2xl font-bold neon-text text-cyan-300">Daftar Kategori Dunia Virtual</h2>
         <a href="{{ route('admin.categories.create') }}" class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 rounded-lg text-white">

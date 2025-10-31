@@ -19,6 +19,8 @@ class Rental extends Model
         'returned_at',
         'total_penalty',
         'payment_status',
+        'return_requested',
+        'return_approved'
     ];
 
     protected $casts = [
