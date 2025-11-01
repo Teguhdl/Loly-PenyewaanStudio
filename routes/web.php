@@ -33,6 +33,9 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
+    Route::get('/telescope', function () {
+        return redirect('/telescope'); // arahkan ke route bawaan Telescope
+    });
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('categories', CategoryController::class)->except(['show']);
 
@@ -61,12 +64,13 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::post('/rentals/approve-return/{id}', [RentalController::class, 'approveReturn'])->name('admin.rentals.approveReturn');
     Route::get('/rentals/print', [RentalController::class, 'print'])->name('admin.rental.print');
     Route::get('/payments/{id}', [RentalController::class, 'show'])->name('admin.rental.show');
-
 });
 
 
 Route::middleware(['auth', 'role:user'])->prefix('user')->group(function () {
-
+    Route::get('/telescope', function () {
+        return redirect('/telescope'); // arahkan ke route bawaan Telescope
+    });
     // Dashboard & Profil
     Route::get('/dashboard', [DashboardUserController::class, 'index'])->name('user.dashboard');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('user.profile.edit');
