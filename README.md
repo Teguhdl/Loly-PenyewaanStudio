@@ -22,6 +22,7 @@ Sistem ini merupakan aplikasi manajemen penyewaan dunia virtual. Pengguna dapat 
 - Formulir pengajuan pengembalian dunia virtual
 - Riwayat penyewaan lengkap dengan status pengembalian dan denda
 - Notifikasi jika penyewaan sedang berlangsung atau terlambat
+- Pembayaran denda dilakukan dengan integrasi payment gateway jika terlambat mengembalikan
 
 ### Admin
 - Melihat daftar semua dunia virtual
@@ -45,4 +46,4 @@ Sistem ini merupakan aplikasi manajemen penyewaan dunia virtual. Pengguna dapat 
 - MySQL (Database)
 - TailwindCSS (UI Styling)
 - Blade Templating
-
+- Integrasi Pembayaran: Midtrans Snap API  
