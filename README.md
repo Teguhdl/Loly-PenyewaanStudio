@@ -50,7 +50,7 @@ Sistem ini merupakan aplikasi manajemen penyewaan dunia virtual. Pengguna dapat 
 
 ## 🧱 Skema Database
 
-![Demo Project](https://drive.google.com/file/d/1bztRg63lGI3HrQNNkG50LeD4EsqZnGb-/view?usp=sharing)
+[Klik di sini untuk melihat Skema Database](https://drive.google.com/file/d/1bztRg63lGI3HrQNNkG50LeD4EsqZnGb-/view?usp=sharing)
 
 ---
 
