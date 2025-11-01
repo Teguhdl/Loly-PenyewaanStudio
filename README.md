@@ -57,6 +57,6 @@ Sistem ini merupakan aplikasi manajemen penyewaan dunia virtual. Pengguna dapat 
 ## 🎥 Demo Proyek
 
 📽️ **Link Demo (Screen Recording):**
-[Klik di sini untuk melihat demo SeaVoyage](https://drive.google.com/file/d/1wtN4pFQfed0DWH1aI_V9hRv2fxwqEFKm/view?usp=sharing)
+[Klik di sini untuk melihat demo Loly Virtual World](https://drive.google.com/file/d/1wtN4pFQfed0DWH1aI_V9hRv2fxwqEFKm/view?usp=sharing)
 
 ---
