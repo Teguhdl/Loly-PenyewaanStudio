@@ -47,3 +47,16 @@ Sistem ini merupakan aplikasi manajemen penyewaan dunia virtual. Pengguna dapat 
 - TailwindCSS (UI Styling)
 - Blade Templating
 - Integrasi Pembayaran: Midtrans Snap API  
+
+## 🧱 Skema Database
+
+![Demo Project](https://drive.google.com/file/d/1bztRg63lGI3HrQNNkG50LeD4EsqZnGb-/view?usp=sharing)
+
+---
+
+## 🎥 Demo Proyek
+
+📽️ **Link Demo (Screen Recording):**
+[Klik di sini untuk melihat demo SeaVoyage](https://drive.google.com/file/d/1wtN4pFQfed0DWH1aI_V9hRv2fxwqEFKm/view?usp=sharing)
+
+---
